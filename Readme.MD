@@ -16,14 +16,15 @@ A monolithic URL shortening service built with **Spring Boot** and **PostgreSQL*
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Language | Java 17+ |
+| Layer | Technology                            |
+|---|---------------------------------------|
+| Language | Java 17+                              |
 | Framework | Spring Boot (Web, Data JPA, Validation) |
-| Database | PostgreSQL 16 |
-| Build tool | Maven / Gradle |
-| Containerization | Docker Compose |
-| Load testing | k6 |
+| Database | Postgres:16-alpine                    |
+| Build tool | Maven                                 |
+| Cache | Redis:7-alpine             |
+| Containerization | Docker Compose                        |
+| Load testing | k6                                    |
 
 ## How It Works
 
@@ -132,7 +133,7 @@ This project is being built incrementally. Planned improvements:
 - [ ] **Authentication and authorization**: secure login (JWT / Spring Security), with per-user link ownership
 - [ ] **Analytics**: click counts, referrers, timestamps, and a top links endpoint
 - [ ] **Rate limiting**: protect the API from abuse (token bucket or sliding window)
-- [ ] **Redis caching**: faster redirects, benchmarked against the V1 baseline
+- [X] **Redis caching**: faster redirects, benchmarked
 - [ ] **Bloom filter**: cheaply reject codes that don't exist
 - [ ] **Custom aliases and link expiry**
 
